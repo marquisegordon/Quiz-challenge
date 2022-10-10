@@ -5,21 +5,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+  <title>Quiz</title>
 </head>
 <body>
   <!-- Div to hold our link to high scores -->
+  <div class="scores"><a href="">View Highscores!</a></div>
 
   <!-- Div to hold our timer -->
+  <div class="timer">Time Left: <span id="">0</span></div>
 
   <!-- Wrapper div to hold the rest of the content on our screen -->
+  <div class="wrapper">
 
     <!-- Div for the start screen -->
+    <div id="start-screen">
+      <h1>Marvel (MCU) Quiz</h1>
+      <p> This is a Marvel quiz. All question will pertain to the Marvel Cinematic Universe (MCU) unless otherwise specified. Answer as many questions as you can within the time given. Wish you great luck! And remember "With great power, must also come, great responsibility" -Aunt May.</p>
+      <button class="button">Start</button>
+    </div>
 
     <!-- Div for the questions -->
+    <div id="questions" class="hide">
+      <h2>Questions</h2>
+      <div>User Choices</div>
+    </div>
 
     <!-- Div for the end screen -->
+    <div id="end-screen" class="hide">
+      <h2>Quiz Finished!!</h2>
+    </div>
 
+  </div>
     <!-- Div to dynamically display feedback to the user -->
     <script src="./assets/js/script.js"></script>
 </body>
