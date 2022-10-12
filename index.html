@@ -14,7 +14,7 @@
   <div class="scores"><a href="">View Highscores!</a></div>
 
   <!-- Div to hold our timer -->
-  <div class="timer">Time Left: <span id="">0</span></div>
+  <div class="timer">Time Left: <span id="clock">0</span></div>
 
   <!-- Wrapper div to hold the rest of the content on our screen -->
   <div class="wrapper">
@@ -22,23 +22,29 @@
     <!-- Div for the start screen -->
     <div id="start-screen">
       <h1>Marvel (MCU) Quiz</h1>
-      <p> This is a Marvel quiz. All question will pertain to the Marvel Cinematic Universe (MCU) unless otherwise specified. Answer as many questions as you can within the time given. Wish you great luck! And remember "With great power, must also come, great responsibility" -Aunt May.</p>
+      <p> This is a Marvel quiz. All question will pertain to the 616 Marvel Cinematic Universe (MCU) unless otherwise specified. Answer as many questions as you can within the time given. Wish you great luck! And remember "With great power, must also come, great responsibility" -Aunt May.</p>
       <button class="button">Start</button>
     </div>
 
     <!-- Div for the questions -->
     <div id="questions" class="hide">
-      <h2>Questions</h2>
-      <div>User Choices</div>
+      <h2 id="questions-subject"></h2>
+      <div id="user-choices" class="user-choices"></div>
     </div>
 
     <!-- Div for the end screen -->
     <div id="end-screen" class="hide">
       <h2>Quiz Finished!!</h2>
+      <p>
+        "final score: "
+        <span id="final-score"></span>
+      </p>
     </div>
 
   </div>
     <!-- Div to dynamically display feedback to the user -->
+    <div id="feedback" class="hide"></div>
+    <script src="./assets/js/quiz-questions.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

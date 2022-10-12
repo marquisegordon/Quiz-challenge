@@ -12,6 +12,15 @@ p {
     font-weight: bolder;
 }
 
+button {
+    font-family: "bangers", "Comic Neue", sans-serif;
+    font-size: 100%;
+    background-color: #8782d8;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
 .scores {
     position: absolute;
     top: 20px;
@@ -26,19 +35,14 @@ p {
 }
 
 .wrapper {
-    position: absolute;
-    padding: 50px;
-    margin: 50px;
+    margin: 100px;
     text-align: center;
 }
 
 .button {
-    font-family: "bangers", "Comic Neue", sans-serif;
     font-size: 20px;
-    background-color: #635beb;
     width: 100px;
     padding: 8px;
-    border-radius: 10px;
 }
 
 .hide {
