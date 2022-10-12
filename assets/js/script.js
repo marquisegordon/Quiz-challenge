@@ -1,14 +1,18 @@
 // Quiz variables
 var startBtn = document.querySelector(".button");
+var enterBtn = document.querySelector("#enter");
 var timerEl = document.querySelector("#clock");
 var questionEl = document.querySelector("#questions");
 var userChoiceEl = document.querySelector("#user-choices");
 var feedbackEl = document.querySelector("#feedback");
+var initialsEl = document.querySelector("#user-initials");
 var questionIndex = 0;
 var time = questions.length * 15;
 var timerId;
 
 // Quiz functions
+
+// Start button event listener
 startBtn.addEventListener("click",function beginQuiz () {
   var startScreenEl = document.getElementById("start-screen");
   startScreenEl.setAttribute("class", "hide");
@@ -18,21 +22,26 @@ startBtn.addEventListener("click",function beginQuiz () {
   setQuestions();
 });
 
+// Running timer
 function setTime() {
   time--;
   timerEl.textContent = time;
 
   if (time <= 0) {
-    quizEnd();
+    endQuiz();
   }
 }
 
+// Question selector
 function setQuestions() {
   var selectedQuestion = questions[questionIndex];
   var subjectEl = document.getElementById("questions-subject");
   subjectEl.textContent = selectedQuestion.subject;
+
+//   Clears previous question choices
   userChoiceEl.innerHTML = "";
 
+// Creats buttons for each choice
   selectedQuestion.choices.forEach(function(choice, i) {
     var userChoice = document.createElement("button");
     userChoice.setAttribute("class", "choice");
@@ -44,6 +53,7 @@ function setQuestions() {
   });
 }
 
+// Answer feedback
 function questionFeedback() {
     if (this.value !== questions[questionIndex].answer) {
         // penalize time
@@ -63,35 +73,54 @@ function questionFeedback() {
         feedbackEl.style.textAlign = "center"
         feedbackEl.style.fontSize = "400%";
     }
-  // 
+
   feedbackEl.setAttribute("class", "feedback");
   setTimeout(function() {
     feedbackEl.setAttribute("class", "feedback hide");
   }, 1000);
 
-  // next question
+  // Next question
   questionIndex++;
 
-  // time checker
+  // Time evaluator
   if (questionIndex === questions.length) {
-    quizEnd();
+    endQuiz();
   } else {
     setQuestions();
   }
 }
 
-function quizEnd() {
-  // stop timer
+// End quiz function
+function endQuiz() {
   clearInterval(timerId);
-
-  // show end screen
   var endScreenEl = document.getElementById("end-screen");
   endScreenEl.removeAttribute("class");
 
-  // show final score
   var finalScoreEl = document.getElementById("final-score");
   finalScoreEl.textContent = time;
 
-  // hide questions section
   questionEl.setAttribute("class", "hide");
 }
+
+enterBtn.addEventListener("click", function saveUserScore() {
+  var initials = initialsEl.value.trim();
+
+  if (initials !== "") {
+    // Get saved scores from localstorage, or set to empty array
+    var highscores =
+      JSON.parse(window.localStorage.getItem("user-scores")) || [];
+
+    // New score object for new user
+    var newScore = {
+      score: time,
+      initials: initials
+    };
+
+    // Save to localstorage
+    highscores.push(newScore);
+    window.localStorage.setItem("user-scores", JSON.stringify(highscores));
+
+    // Takes user to next page
+    window.location.href = "scores.html";
+  }
+});
