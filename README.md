@@ -10,9 +10,13 @@ Provide a short description explaining the what, why, and how of your project. U
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+To open the quiz visit:
+https://marquisegordon.github.io/Quiz-challenge/
 
 ## Usage
+
+Answer as many questions pertaining to the Marvel Cinematic Universe as you can. Every time you miss a question time will be deducted from you timer. Finish the quiz before the timer runs out and see how you did.
+
 ![quiz image](./assets/images/Screen-Shot1.png)
 ![quiz image](./assets/images/Screen-Shot2.png)
 ![quiz image](./assets/images/Screen-Shot3.png)
